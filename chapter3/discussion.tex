@@ -1,0 +1,134 @@
+\documentclass[../main.tex]{subfiles}
+\hbadness=1000000
+\vbadness=1000000
+
+\begin{document}
+\section{Discussion}
+tACs is a non-invasive brain stimulation that is being used as a potential tool for addressing brain disorders.
+It has demonstrated the ability to interact with and modulate inherent rhythms, influencing brain dynamics and cognitive processes.
+Our first step in the ongoing collaboration with the C3N research group was the developing of customized resting-state network models to explore the application of tACS.
+This was motivated by a proposal of using tACS as potential therapeutic protocol to slow down the developing of Alzheimer disease's.
+A high synchronization between \textit{fronto-parietal} areas areas can be consider as a biomarker of the developing of such disease, and tACS represents a potential candidate to reduce this excess of synchrony.
+
+In our model, each ROI or node  consists of two mutually coupled subpopulations of excitatory and inhibitory neurons.
+Although the most common approach seems to be the use of mass models \citep{deco_key_2009,cabral2014exploring, cabrera-alvarez_modeling_2023}, the Kumamoto model \citep{cabral_role_2011}, or others \citep{honey_network_2007}, for modelling resting-state brain networks, the advantage of spiking models over neural mass models lies in the richness of the dynamics that can be obtained, albeit with higher computational cost.
+However, there are also other studies where spiking neuron models have been used to design these type of networks \citep{deco_ongoing_2012,nakagawa_how_2014}.
+
+The design of these resting-state models follows a common pattern based on the use of experimental data from subjects or patients to obtain personalized network models.
+This involves a fitting process to maximize the similarity between experimental-computational functional connectivity matrices.
+Although this may be sufficient for mass models, as we could observe, there may be limitations for spiking neuron models.
+Therefore, it was necessary to include additional constraints to achieve maximum similarity (working point) while keeping essential properties that the network should exhibit, which would not be achieved otherwise, such as highly synchronized states at the region or node level or an oscillation lower than the desired.
+According to our proposed criteria for achieving this maximization of similarity, we have not achieved correlations higher than 0.62 in the best-case scenario.
+In contrast to other studies that employed spiking models \citep{nakagawa_how_2014}, which did not report correlations greater than 0.4, it can be observed that the level of synchronization exhibited by the network is significantly different from what is observed experimentally.
+Therefore, in our optimization criteria, we have taken into account the avoidance of such states.
+As a result of these criteria, the output at the working point consists of signals that alternate between states of higher and lower synchronization (transient synchrony), as experimentally observed \citep{scheeringa2012eeg,palmigiano_flexible_2017-1, rhodes_transient_2018}.
+
+The orientation of pyramidal neurons causes their response to an external electric field to vary among them.
+The effective field they experience corresponds to the normal component of the field on the surface where they are located.
+This means that within the same region, neurons experience different electric fields when that region of the brain is stimulated.
+Instead of having an effective field over a specific region, we have a field distribution.
+The use of spiking neural models has allowed us to explore an stimulation protocol considering the variety of electric fields per region, unlike previous studies (with mass models) where the mean of these distributions was employed \citep{merlet_oscillatory_2013}.
+
+In general, these whole set of distributions can be classified into three different types, and therefore, we first studied how an isolated region synchronizes with the external stimulation.
+We could verify that the properties of the distribution indeed affect, at the theoretical-computational level, the synchronization states between the network and the stimulation that emerge within the parameter space: stimulation frequency and stimulation amplitude.
+The first conclusion we have drawn from this analysis is that if the distribution has a mean close to $0$, synchronization between the node and the external stimulation was not generated.
+On the other hand, as the amplitude increases, 2:1 synchronization states emerged due to the appearance of two subnetworks in anti-phase dynamics oscillating at the stimulation frequency.
+This occurs because at this point, the external dynamics dominates the internal connectivity.
+The second conclusion is that the further the mean is from zero (either positively or negatively), the more $1:1$ synchronization states will appear in the parameter space, and therefore, the generation of entrainment and the corresponding increase in power, in this case, in the alpha band.
+Thus, based on the characteristics of the distributions, we can infer how easy or difficult it will be to increase power in the corresponding region.
+However, at the network level, there are other factors that will determine whether such an increase occurs or not, such as the structural connectivity and the emergent functional connectivity.
+
+When simulating the application of tACS on the different personalized network models, we were able to observe an increase in alpha band power compared to the resting-state of a similar magnitude to what has been experimentally observed.
+However, when comparing different subjects, we observed different effects from such stimulation.
+In some network models, we observed an increase, in others a decrease (of lesser magnitude in absolute terms), and in some cases, no apparent effect.
+To elucidate the factors that determine this variety of results, we implemented a multiple regression model with different variables that may be involved in the ongoing effects of tACS.
+These variables included the distributions of the normal component of the electric field, as well as the structural and functional connectivity.
+Among all the variables considered, the one that had the greatest influence on the increase in alpha band power was the mean of the distributions.
+Initially, we could assume that considering the mean of the distributions as a constant amplitude could be a good approximation \citep{merlet_oscillatory_2013}.
+However, this approach would overlook other variables, such as skewness and kurtosis, which have also been found to be statistically significant, although with less relevance.
+
+\subsubsection{Limitations and further work}
+Despite the improvements in the methodology, our results indicate that there is still room for improvement.
+We assumed some simplifications that do not fully capture the intricate complexity of the brain.
+For example, the structural connectivity matrices were obtained by tractography, a method that cannot distinguish directionality in the connections.
+Therefore we considered bidirectional connections between each pair of regions with equal weight.
+Regarding the synaptic currents, our model only considers two types of synapses, GABA and AMPA, while NMDA plays an important role in inter-regional connections \citep{kuhlmann2013modulation,reese2015spontaneous,hoflich2015ketamine}.
+Furthermore, incorporating plasticity dynamics could be highly valuable for observing the after-effects of tACS on the networks \citep{vossen_alpha_2015,schwab2021spike, jeong2021modulation} since, as a difference to the experimental procedure, we have analyzed the on-line effects.
+However, it is important to acknowledge that these network models, whether using neural mass models or spiking models, always involve many assumptions.
+An excessively detailed level of modelling may not be desirable as it may not have a significant impact on the object of study, compared to other factors, while increasing computational costs.
+% Moreover, there is also the limitation of compartmentalizing the brain into 22 regions, which is a considerable reduction compared to other models that employ around 100 regions or \citep{deco_ongoing_2012,nakagawa_how_2014}.
+% Undoubtedly, an important next step in this study would be to expand the network to include more regions with the implementation of the developed methodology.
+
+With the methodology we developed, there is the opportunity to expand the network beyond the cingulum bundle and encompass additional brain regions.
+This broader approach would enable the creation of a comprehensive whole-brain neural networks, 
+which could include around 100 ROIs \citep{deco_ongoing_2012,nakagawa_how_2014}.
+Thus, expanding the network to encompass a greater number of ROIs represents an important advancement for this study.
+
+In addition to the potential implementation of all these elements mentioned, the next step in our proposal would be to apply this type of models to patients with MCI.
+After the first step, the protocol of increasing alpha power, the second step would aim at desynchronizing \textit{Anterior Cingulate Cortex} and \textit{Precuneus}.
+To achieve this, we would apply tACS again with the amplitude obtained in the previously to determine
+the optimal stimulation frequency for achieving this reduction in synchronization.
+The use of data of this kind of patients could involve the addition of new constraints to the model fitting procedure in order to keep the high-synchronization biomarker in case our methodology was not sufficient to reflect it in the optimized network model.
+\end{document}
+
+\begin{itemize}
+    \item limitaciones del modelo. Más regiones, incluir NMDA, si es posible aumentar el numero de neuronas por red. 
+    \item sobre la emergencia de las oscillaciones alpha
+    In the model, isolated nodes did not oscillate autonomously or from
+    the background activity only. Increasing input from other nodes triggered activity-dependent SFA, leading itself to noisy oscillations in the alpha-band \citep{nakagawa_how_2014}.
+
+    \item In the presented data, maximal model fit was no higher than .4 for
+    any delay condition, which leaves room for improvement. Of course,
+    this may be related to dynamics and communications not captured by
+    the model, such as, e.g., lateral connections (Spiegler and Jirsa, 2013),
+    or directionality of fibers between brain areas. Results are also influenced by the quality of the DTI matrix, which is prone to miss interhemispheric connections (Hagmann et al., 2008)
+    \citep{nakagawa_how_2014}
+
+    \item In conclusion, brain connectivity and resting-state FC investigation is
+becoming more and more important, both for understanding basic organization principles of brain networks as well as for investigating and
+potentially diagnosing medical conditions. With access to neurophysiological recordings of resting-state activity at high temporal resolutions,
+we are now in the position to investigate the importance of oscillation
+in the brain for spontaneous network patterns. We here propose a
+model that offers an implementation of such noisy oscillations combined with large-scale resting-state network connectivity. We demonstrate that in the presence of these oscillatory dynamics, the model
+T.T. Nakagawa et al. / NeuroImage 87 (2014) 383–394 391
+best captures the band-limited power connectivity patterns of the
+empirical data when considering delays
+\citep{nakagawa_how_2014}
+
+
+\item \textbf{Se podría tambien mencionar las técnicas nuevas o las nuevas propuestas, representacion de mools por capa. (cuando vuelva a leer esto no me voy a enterar mucho, pero solo tengo que pensar en aquella charla que se dio en el ifisc).}
+
+\item Alternating epcochs of high sincronizacion with salient 
+
+\end{itemize}
+
+\newpage 
+
+\section{Sobre las limitiaciones de este modelos}
+\textit{Dynamic properties of simulated brain network models and empirical resting-state data}
+\textcolor{red}{De aqui puedo sacar buenas ideas}
+Our modeling approach makes many simplifying assumptions that do not capture the true complexity of the brain. In the construction of the structural connectome, we assumed that all connections were bidirectional. This is a limitation of using tractography to build the structural network, since tractography cannot distinguish unidirectional connections. Moreover, estimates of fiber density for connections between regions that have very sharp angles or between regions that are spatially far apart are far lower than the true connectivity between these regions (Bullmore  Sporns, 2009). In our generative models we also assumed a homogeneity in the response of ROIs, in both their neural description, as well as their transformation using the hemodynamic Balloon-Windkessel model. Moreover, we did not simulate subcortical structures that are known to play a crucial role in the operation of the central nervous system. All these factors might change the association between dynamic metrics and the simulated BNM signal.
+
+We also examined only a single parameterization for only two BNMs. There are a variety of BNMs, some of which are likely to exhibit more complex dynamics than either the Kuramoto or the Firing Rate model (Sanz-Leon et al., 2015). Even different parameterizations of a single model can give rise to vastly different behavior (Hansen et al., 2015). We chose to focus on the Kuramoto and Firing Rate models because of their relative simplicity, their thorough characterization, and the expectation that they would have dissimilar dynamic properties.
+
+There are also numerous dynamic analysis methods available for rs-fMRI (Keilholz et al., 2017). We chose to focus on a few of the most common ones, but future work should certainly examine the use of other types of analysis to produce even more sensitive metrics. Moreover, our study does not look at methods to test these metrics and use the established correlation as distance function. We have also not explored the entire space of parameterization, so it is possible that these models can produce more realistic signals; however, based on previous results establishing these as close to optimum, the results are probably a realistic representation of their capabilities.
+
+\section{Sobre lo de merlet}
+The SNN simulations of theoretical distributions showed differential effects depending on the shape of
+the distributions of EF normal components while sharing approximately the same mean. In contrast, further
+regression analysis showed that although it does not explain the whole variance, the absolute mean of
+the distribution was the best predictor for alpha rise in a region. It should be noticed that the fitted value
+to empirical data of stimulation intensity used for regression was in the lower range of the theoretical
+experiments, in which the different results for distribution shapes were less prominent. This could suggest
+that using the mean of the distribution as in previous studies \citep{merlet_oscillatory_2013} could be an acceptable
+approximation to model the effects on power, although missing a certain level of accuracy.
+
+\section{Conclusión final}
+
+ Non-invasive brain stimulation, and specifically tACS, are potential
+tools for the treatment of brain disorders, however further research is necessary to fully understand and
+control the effects of these techniques on brain dynamics and cognition. Computational models would help
+in shaping stimulation protocols, providing a model driven approach for the application of tACS achievin¡
+more specific targets of brain signals and potentially improving results of neuromodulation.
+
+\end{document}

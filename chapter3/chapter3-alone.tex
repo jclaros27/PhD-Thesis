@@ -1,0 +1,15 @@
+% Fichero para generar el pdf de solo este capitulo con apémndice (si lo tiene) y bibliografía
+\documentclass[../main.tex]{subfiles}
+\hbadness=1000000
+\vbadness=1000000
+
+\begin{document}
+\chapter{Increasing alpha power in resting-state spiking network models}
+\subfile{introduction}
+\subfile{methods}
+\subfile{results}
+\subfile{discussion}
+% \subfile{../appendices/appendix_chapter3}
+
+\printbibliography
+\end{document}
