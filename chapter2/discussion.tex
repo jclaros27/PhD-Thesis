@@ -1,0 +1,61 @@
+\documentclass[../main.tex]{subfiles}
+\hbadness=1000000
+\vbadness=1000000
+
+\begin{document}
+\section{Discussion}
+% \textcolor{blue}{Falta añadir un poco lo que permite el analisis con los osciladores de Kuramoto. 
+
+% Principalmente la idea sería ligarlo con cómo la reducción de fase puede permitir realizar un pre-analisis para poder entender estructuras más complejas. En nuestro caso concreto prediciendo aquellas regiones de inestabilidad, donde no hay phase locking, y la información no se puede tranmisitir eficazmente.
+
+We investigated signal transmission in neuronal circuits using two canonical motifs: the V-motif, which consists of a chain of three bidirectionally coupled neural populations, and the circular motif, which adds bidirectional connections between the outer populations of the chain \citep{pariz_transmission_2021}.
+These motifs, inspired by the cortico-thalamo-cortical networks, allowed us to address open questions regarding efficient information transmission in these circuits 
+\citep{pariz_transmission_2021}. 
+
+Before delving into the examination of information transmission, we utilized the Kuramoto model to determine the potential states emerging in the two different motifs across the parameter space defined by the phase difference $\delta$, equivalent to a delay, and the frequency mismatch $\Delta\omega$. of the sender.
+This preliminary investigation provided us with valuable insights into the potential behaviors of these structures.
+Remarkably, our analysis revealed similar patterns of stable and unstable solutions when studying these structures as circuits of coupled networks using the Hodgkin-Huxley model.
+
+Two operation modes were identified, which can be dynamically switched by modulating the strength of the direct cortico-cortical connection.
+When the cortico-cortical connection is weak, the V-motif dynamics dominates, supporting robust transmission from the thalamus to the cortex as well as in the feedback cortico-thalamic direction.
+In contrast, when the strength of the cortico-cortical connection increases, C-motif dynamics facilitate the coexistence of the canonical thalamo-cortical transmission with a cortico-thalamo-cortical association loop.
+This cooperation between direct cortico-cortical and indirect transthalamic communication contributes to cortical computations \citep{pariz_transmission_2021}.
+
+To investigate information transmission in this system, we systematically explored the consequences of varying two important parameters: detuning between the populations and delay in the connections \citep{pariz_transmission_2021}.
+Positive detuning, resulting in a higher oscillation frequency in the sender population, has been shown to enhance communication in the network \citep{sancristobal_role_2014, kirst_dynamic_2016, palmigiano_flexible_2017-1, pariz_high_2018, pariz_transmission_2021}.
+However, the combination of detuning and delay determines the efficacy and preferred direction of signal transmission \citep{pariz_transmission_2021}.
+
+The phase relations between bidirectionally coupled oscillators, determined by their phase response curves (PRCs), also play a crucial role in information transfer \citep{pariz_transmission_2021}.
+For symmetric bidirectionally coupled oscillators, stable $0$ or $\pi$ phase differences can occur depending on the delay time and their PRCs \citep{gollo_dynamic_2010, gollo_mechanisms_2014, mirasso_anticipated_2017}.
+The organization of connections in the three network motifs can also affect the phase relation \citep{gollo_dynamic_2010, gollo_mechanisms_2014, mirasso_anticipated_2017}.
+In the absence of cortico-cortical connections, each pair of adjacent nodes can exhibit $0$ or $\pi$ phase, with outer populations favoring zero phase lag \citep{gollo_dynamic_2010, gollo_mechanisms_2014, mirasso_anticipated_2017}. 
+In a symmetric circular motif, a new state emerges in which the three populations tend to lock at a $2\pi/3$ phase difference, corresponding to the symmetry of the motif.
+This state has a larger basin of attraction for small cortico-cortical connection values and deviates from the relay motif's pattern of information transfer \citep{gollo_dynamic_2010, gollo_mechanisms_2014, mirasso_anticipated_2017}. 
+
+The efficacy of signal transmission between neuronal populations depends not only on the phase relation and delay time but also on the shape of the phase response curve (PRC) of the receiver population at the time it receives the spiking activity of the sender population \citep{pariz_transmission_2021}.
+The PRCs of population oscillations depend on the mechanism of oscillation generation in excitatory-inhibitory networks and the internal dynamical properties of the networks, thereby affecting information transfer in brain circuits \citep{dumont_macroscopic_2019}.
+The preference for positive detuning is due to the asymmetric shape of the PRCs of realistic neurons and neuronal populations \citep{sadeghi_synchronization_2014, dumont_macroscopic_2019, pariz_transmission_2021}.
+The shape and symmetry properties of the PRCs can fundamentally affect information transfer in the brain, as observed in the three neuron motifs we have studied \citep{pariz_transmission_2021}.
+
+In general, positive detuning values enhance transmission efficacy between populations, although there are cases in which good transmission is feasible even for negative detuning values.
+In the V-motif, negative detuning allows good transmission when the intermediate population acts as the sender, while positive detuning is required for signal injection in the external populations \citep{pariz_transmission_2021}.
+This suggests that the canonical thalamo-cortical sensory transmission can be preserved for a broad range of thalamic frequencies, enabling the coexistence of top-down and bottom-up computations necessary for sensory integration \citep{hirsch_how_2015}.
+Cortico-thalamic transmission in the V-motif is restricted to positive detuning, consistent with the canonical view of thalamic function \citep{sherman_thalamus_2016}.
+
+The addition of a direct link between the outer populations (cortico-cortical connection) leads to different operation modes.
+Higher cortico-cortical synaptic weights facilitate effective communication in the indirect cortico-thalamo-cortical pathway for negative detuning values, creating a communication channel that does not exist in the V-motif \citep{pariz_transmission_2021}.
+For small cortico-cortical connection values, the dynamics are primarily governed by the V-motif, and the strength of the cortico-cortical connection controls the switching between dynamic modes \citep{pariz_transmission_2021}.
+The V-motif or the C-motif with low cortico-cortical connection strength favors efficient signal transmission, while the circular motif with higher cortico-cortical connectivity allows new communication channels at the expense of the overall efficiency \citep{pariz_transmission_2021}.
+The cortical associative loops generated in the latter mode involve both direct cortico-cortical and indirect transthalamic pathways, playing distinct but fundamental roles in feature binding and cortical integrative computation \citep{singer_binding_2007, uhlhaas_neural_2009, gollo_dynamic_2010}.
+
+It is crucial to recognize and address the limitations inherent in our study.
+The results were obtained in a highly coherent and synchronized regime, with each population exhibiting a single oscillation frequency that may not fully represent the realistic dynamics of cortical networks \citep{xing_stochastic_2012}.
+Brain functions involve different frequency bands, and synchronization occurs in short periods within a weakly coherent scenario.
+Future research should consider richer neural dynamics and the role of slow synapses, which were not included in our model, to further understand the underlying circuit mechanisms of information transmission between brain areas \citep{tort_theta-associated_2013, palmigiano_flexible_2017-1, cannon_neurosystems_2014}.
+
+In conclusion, our study systematically examined signal propagation in V- and C-motifs resembling the thalamo-cortical system.
+We observed complex operation modes determined by connection delay and frequency detuning, with the strength of the cortico-cortical connection playing a modulatory role in mode selection \citep{pariz_transmission_2021}.
+These modes would support the flexible alternation between computations involving sensory processing, robust thalamo-cortical transmission, top-down cortico-thalamic modulation (e.g., attention), and associative cortical processing \citep{pariz_transmission_2021}.
+The findings contribute to our understanding of information transfer in neuronal circuits, shedding light on the underlying mechanisms of brain function and providing insights for future investigations into neurological disorders and cognitive processes \citep{fries_rhythms_2015, singer_binding_2007, uhlhaas_neural_2009}.
+\end{document}
+
