@@ -1,0 +1,69 @@
+\RequirePackage{silence} % :-\
+    \WarningFilter{scrreprt}{Usage of package `titlesec'}
+    \WarningFilter{scrreprt}{Usage of package `tocloft'}
+    %\WarningFilter{scrreprt}{Activating an ugly workaround}
+    \WarningFilter{titlesec}{Non standard sectioning command}
+    
+\documentclass[twoside,openright,titlepage,numbers=noenddot,%1headlines,
+               headinclude,footinclude,cleardoublepage=empty,abstract=on, BCOR=10mm,
+               fontsize=11pt, paper=a4
+                ]{scrreprt}
+
+% \documentclass[twoside,openright,titlepage,numbers=noenddot,%1headlines,
+%               headinclude,footinclude,cleardoublepage=empty,abstract=on, %BCOR=5mm,
+%               fontsize=11pt]{scrreprt}
+% \usepackage[b5paper,layout=b5paper]{geometry}
+
+\input{config}
+%\areaset{17cm}{\dimexpr\textwidth+5cm\relax}
+% \areaset{140mm}{260mm} % added by me 11/06/2023
+%%% Change the text block area to add also the margin space
+%\areaset{17cm}{\dimexpr\textwidth+5cm\relax}
+
+% \areaset[current]{\dimexpr\textwidth+\marginparwidth+\marginparsep}{260mm}
+\areaset[current]{150mm}{260mm}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+% \usepackage{kantlipsum}
+
+% \areaset[current]{135mm}{260mm}%
+% \captionsetup{format=plain, labelfont=bf, justification=justified, singlelinecheck=false}
+\captionsetup{format=plain, labelfont=bf, justification=justified, singlelinecheck=false}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+\addbibresource{mylibrary-corrected.bib}
+\begin{document}
+
+\subfile{frontbackmatter/cover}
+% \subfile{frontbackmatter/titlepage}
+\subfile{frontbackmatter/titlepage}
+
+% \includepdf[pages=-]{Portada.pdf}
+
+\cleardoublepage
+\subfile{frontbackmatter/dedication}
+\cleardoublepage
+\subfile{frontbackmatter/acknowledgements}
+\clearpage
+
+% \end{document}
+\addtocontents{toc}{\protect\pagestyle{empty}}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+% \thispagestyle{empty}
+% \listoffigures
+% \newpage
+\subfile{frontbackmatter/abstract}
+\subfile{chapter1/chapter} % intro
+\subfile{chapter2/chapter} % motifs
+\subfile{chapter3/chapter} % tACs
+\subfile{chapter4/chapter} % hippocampus
+\subfile{chapter5/chapter} % Conlusiones
+\subfile{frontbackmatter/bibliography} % bibliography
+\appendix
+\subfile{appendices/appendix_chapter2} % motifs
+\subfile{appendices/appendix_chapter3} % tACs
+% \subfile{appendices/appendix_chapter4} % hippocampus
+\end{document}
