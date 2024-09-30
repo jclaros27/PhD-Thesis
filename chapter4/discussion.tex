@@ -1,0 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+\hbadness=1000000
+\vbadness=1000000
+\begin{document}
+
+\section{Discussion}
+In this part of the thesis, we focused on developing a multicompartmental model for the CA3 and CA1 subfields of the hippocampus.
+Structurally, the hippocampus is characterized by a well-defined laminar structure and a huge diversity of inhibitory interneurons that selectively target distinct segments of the dendritic tree of pyramidal neurons.
+Functionally, the hippocampus exhibits diverse states depending on the conditions or behaviour of the subject.
+For instance, these states can be those associated with novel environment exploration, the recall of a prior experience, a resting state, or REM and non-REM sleep.
+The neuronal activity, primarily characterized by theta and gamma rhythms, manifests distinct properties in each of these states.
+The prefered phase at which neurons involved in theses states discharge, as well the cross-frequency coupling, also exhibits variations across states \citep{lopez-madrona_different_2020}.
+As discused in the introduction of this chapter, when a subject navigates an unfamiliar environment and engages learning, it has been observed that the three independent sources of theta in the hippocampus synchronize \cite{lopez-madrona_different_2020}.
+Concurrently, the phase-amplitude coupling among their own gamma components is higher than when they are not synchronized.
+% Hence, from an abstract perspective, one may categorize the different states based on parameters such as those mentioned.
+The model was constructed based on results derived from experiments conducted on rats during freely exploration of a familiar environment \citep{mizuseki_theta_2009}.
+Hence, our model faithfully replicates these specific conditions and excludes others, necessitating adjustments for alternative contexts.
+
+The model generates cross-frequency theta-gamma phase-amplitude coupling and replicates the activation pattern related to the phases between CA1 and CA3 pyramidal neurons \cite{mizuseki_theta_2009, cutsuridis_computational_2015}.
+A pattern, characterized by a phase shift of more than half of a theta cycle, which it cannot be only reproduced by synaptic dealys \citep{cutsuridis_computational_2015}.
+We could reproduce that by the consideration of CCK cells which plays an important role of inhibition in the distal dendrites of CA1 pyramidal cells \citep{bilash_lateral_2023}.
+Additionally, we have successfully reproduced other observable properties of the hippocampus, such as low gamma oscillations predominantly occurring in the descending phase relative to the pyramidal layer LFP \citep{schomburg_theta_2014,lopez-madrona_different_2020}, the anti-phase relation between theta components in the perisomatic and the lm strata \citep{schomburg_theta_2014,fernandez-ruiz_entorhinal-ca3_2017}, and the the role of inhibition on basket interneurons on enhancing theta and gamma oscillations and their coupling \citep{wulff_hippocampal_2009}.
+In the context of cross-frequency coupling, our model provides insights into the interesting role played by each of the external inputs on the circuit, particularly those from the entorhinal cortex and the medial septum.
+While the former worsens the stability of the resulting theta oscillation, the latter improves the coordination of gamma oscillations.
+
+\subsubsection{Limitations and further work}
+Despite various computational models in the literature, few delve into modeling different parts of the hippocampus coupled together.
+One example is the model developed by Cutsuridis \textit{et al.} \citep{cutsuridis_computational_2015}, which was capable to reproduce the phase difference between CA3 and CA1 pyramidal cells, due to local inhibiton.
+However, their model did not generate rhythms as it focused on a more dendritic computation perspective.
+% and it was not a population network model.
+On the other hand, the model developed by Mysin \citep{mysin_model_2021} focused on the generation of different gamma rhythms: slow, medium and high, as well as ripples; and other phenomena, such as phase precession, a systematic change in the phase of the firing of the neurons relative to the ongoing theta oscillations during exploration \citep{hyafil_neural_2015}.
+
+Nevertheless, like any model, ours is not exempt from limitations.
+Apart from the type of neurons used, one of the main constraints lies in the modeling of inputs, as we only considered them to be composed of neurons with a single firing rate, excepting the DG inputs composed by two subpopulations. 
+In line with the aforementioned model, ours exclusively generates low gamma frequencies and not higher ones.
+Although extending this capability is conceivable, a notable discrepancy between our model and that proposed by Mysin \textit{et al.} \citep{mysin_model_2021} lies in the number of compartments used for the dendritic modeling.
+This distinction allows for a more pronunced differentiation among the modeled strata, thereby enabling the specific localization of particular frequency band.
+However, it is important to note that one of our objectives for the development of the model was to maintain simplicity by employing a reduced number of compartments, a design choice accompanied by both advantages and disadvantages.
+Despite the simplifications inherent in our model, our findings regarding the phase and cross-frequency coupling relationships align closely with experimental observations, shedding light on the precise neuronal involvement and the requisite level of complexity necessary for accurate characterization.
+
+One of the main objectives that would follow the work done would be the implementation of the dentate gyrus, so that we could reproduce the trisynaptic pathway connecting the 3 subfileds: DG, CA3 and CA1.
+In this scheme, an important element would be the study of the directionality between gamma and theta oscillations.
+The measure called cross-frequency directionality \citep{jiang_measuring_2015}, in the context of two different coupled oscillations, allows to determine which oscillation which oscillation reliable precedes the other.
+Results provided by Lopez-Madrona \textit{et al.} \citep{lopez-madrona_different_2020} indicated that gamma oscillations reliably precedes the on-going theta oscillations in their corresponding layers.
+No mechanisms have been proposed to generate this gamma-to-theta interaction and so the next steps will be in that direction.
+We conducted several tests in the current status of the model but we could not achieve appropirate and clear results,
+mainly due to limitations in the construction of the model.
+For example, the external sources acting as theta generators did not provide enough variability, generating a solid 8 Hz oscillation in all layers with strong coherence between them.
+Therefore, not only the addition of the dentate gyrus but also other factors such as variability of these generators would provide much richness to the model and the possibility to explore whether in the model we are able to obtain the similar results than experiments and make proposals about the underlying mechanisms.
+\end{document}
