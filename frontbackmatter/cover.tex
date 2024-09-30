@@ -1,0 +1,51 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\begin{titlepage}
+    %\pdfbookmark[1]{\myTitle}{titlepage}
+    % if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
+    \begin{addmargin}[-1cm]{-3cm}
+        \large
+
+        \begin{center}
+            
+            \includegraphics[width=.35\textwidth]{frontbackmatter/figures/uib.png}
+
+        % \begin{minipage}[c][0.2\textheight]{0.5\textwidth}
+        %     \begin{flushleft}
+        %         \begin{minipage}{0.6\textwidth}
+        %             \includegraphics[width=\textwidth]{uib}
+        %         \end{minipage}
+        %     \end{flushleft}
+        % \end{minipage}
+        % \begin{minipage}[c][0.2\textheight]{0.5\textwidth}
+        %     \begin{flushright}
+        %         \begin{minipage}{0.9\textwidth}
+        %             \includegraphics[width=\textwidth]{ifisc}
+        %         \end{minipage}
+        %     \end{flushright}
+        % \end{minipage}
+        
+            \vspace*{.05\textheight}
+
+            \spacedallcaps{Doctoral thesis} \\
+            \myYear
+
+            \vspace*{.15\textheight}
+
+            \begingroup
+                % \color{CTtitle}
+                \spacedallcaps{\myTitle}
+                \\ \smallskip
+                \textsc{\MakeLowercase{\mySubtitle}}
+            \endgroup
+
+            \vfill
+
+            % \spacedlowsmallcaps{\myName}
+            \myName
+        \end{center}
+    \end{addmargin}
+\end{titlepage}
+
+\end{document}

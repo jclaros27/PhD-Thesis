@@ -1,0 +1,30 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% Pendiente de retocar 
+%********************************************************************
+% Bibliography 
+%*******************************************************
+% work-around to have small caps also here in the headline
+% https://tex.stackexchange.com/questions/188126/wrong-header-in-bibliography-classicthesis
+% Thanks to Enrico Gregorio
+\defbibheading{bibintoc}[\bibname]{%
+  \phantomsection
+  \manualmark
+  \markboth{\spacedlowsmallcaps{#1}}{\spacedlowsmallcaps{#1}}%
+  \addtocontents{toc}{\protect\vspace{\beforebibskip}}%
+  \addcontentsline{toc}{chapter}{\tocEntry{#1}}%
+  \chapter*{#1}%
+}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\markboth{\spacedlowsmallcaps{Bibliograpphy}}{\spacedlowsmallcaps{Bibliography}}
+\printbibliography%[heading=none]%,category=thesis_articles]
+
+% \begin{refcontext}[sorting=none]
+% \printbibliography[heading=none]%,category=other_articles]
+% \end{refcontext}
+% \printbibliography[heading=none,notcategory=other_articles,notcategory=thesis_articles]
+
+% \printbibliography
+\end{document}

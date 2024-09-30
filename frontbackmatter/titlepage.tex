@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+%*******************************************************
+% Titlepage
+%*******************************************************
+\begin{titlepage}
+    %\pdfbookmark[1]{\myTitle}{titlepage}
+    % if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
+    \begin{addmargin}[-1cm]{-3cm}
+        \large
+
+        \hfill
+        \begin{minipage}[c][0.2\textheight]{0.5\textwidth}
+            \includegraphics[width=.75\textwidth]{frontbackmatter/figures/uib.png}
+        \end{minipage}
+        \hfill
+        \begin{minipage}[c][0.2\textheight]{0.5\textwidth}
+            \includegraphics[width=1\textwidth]{frontbackmatter/figures/ifisc.pdf}
+        \end{minipage}
+        \hfill
+
+        \begin{center}
+            \vspace*{.1\textheight}
+        
+            \spacedallcaps{Doctoral thesis} \\
+            \myYear
+        
+            \bigskip
+
+            Doctoral Programme in Physics \\
+
+            \vfill
+        
+            \begingroup
+                % \color{CTtitle}
+                \spacedallcaps{\myTitle}
+                \\ \smallskip
+                \textsc{\MakeLowercase{\mySubtitle}}
+            \endgroup
+
+            \bigskip
+            
+            % \spacedlowsmallcaps{\myName}
+            \myName
+
+            
+            \vfill
+
+            \begin{flushleft}
+                Thesis Supervisor: \mySupervisor \\
+                Thesis Supervisor: \myOtherSupervisor \\
+                Thesis Tutor: Cristóbal López Sánchez\\
+
+                \vfill
+
+                \myDegree by the \myUni
+            \end{flushleft}
+        
+        \end{center}
+    \end{addmargin}
+\end{titlepage}
+
+\end{document}
