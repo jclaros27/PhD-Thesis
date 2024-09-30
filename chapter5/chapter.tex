@@ -1,0 +1,69 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\chapter{Conclusions}
+Throughout this doctoral thesis, we have explored different aspects of neural network modelling, each illuminating different facets regarding information transmission, brain stimulation, and hippocampal circuit dynamics.
+This journey highlights the importance of the level of complexity required to address the type of problem we are facing.
+While in the first two models discussed, the focus was global, meaning that it was on the collective and emergent behavior among interconnected populations forming a network, in the third case, the hippocampal model, our approach was local, focusing on the behavior of each subgroup of neurons, as well as the dendritic level or strates in the case of pyramidal neurons.
+
+In the first part, the significance of delays in connections stands out, as they play a crucial role in the emerging dynamics among interconnected populations, determining coherence states and, consequently, windows of effective information transmission.
+Drawing inspiration from properties observed in cortico-cortical circuits, the motifs considered allowed us to derive general properties associated with specific structural types.
+When scaling up to larger models, a variety of delays among the populations involved is expected.
+This was evident in the resting-state models developed in the second part, where emergent dynamics exhibited temporal variability in synchronization levels between populations.
+Such temporal dynamics imply the dynamic opening and closing of windows of effective information transmission in the network.
+A deep understanding of these dynamic properties allows for the recognition of different states in neural networks, offering invaluable insights of the inner properties of the network.
+
+In addition, in this second part, it is imperative to highlight the importance of establishing an appropriate criterion when optimizing the parameters involved in resting-state neural networks.
+The consideration of spiking models in such networks presented a challenge, as standard methodology often resulted dynamics in the regime of \textit{strongly-coupled oscillators}, characterized by high intrapopulation synchronization accompanied by strong bursting dynamics.
+To address this, we designed a criterion incorporating additional restrictions alongside the standard approach, ensuring that the resulting dynamics were outside this regime.
+Consequently, though the use of spiking neuron models in such network models may be intriguing due to the variability of dynamics that could be considered, it may entail a more complex optimization process.
+
+Lastly, the exploration of hippocampal dynamics underscores the critical role of multicompartimental models in elucidating the intricacies of neural circuitry.
+By delving into the complexities of the hippocampus, we have unraveled a multifaceted landscape where diverse neuronal populations and intricate dynamics converge to spectific orchestration of neural rhythms.
+Central to this endeavor was the use of multicompartimental models, that not only capture the heterogeneity of neuronal populations within the hippocampus but also illuminate the contributions of individual neuron subtypes and dendritic compartments to network dynamics.
+By integrating experimental evidence and theoretical frameworks, we have enhanced the biological fidelity of our model, paving the way for deeper insights into hippocampal function.
+Moving forward, the continued refinement and application of models such as the one presented in this thesis will be instrumental in unraveling the complexities of hippocampal circuitry and its role in cognitive processes, ultimately advancing our understanding of brain function and dysfunction.
+
+In conclusion, the work presented in this doctoral thesis provides a comprehensive framework for understanding neural network dynamics and their implications for brain function.
+By exploring different perspectives of computational neural modelling, we have laid a solid foundation for future research endeavors aimed at unraveling the complexities of the brain and addressing key questions in neuroscience and neurology.
+\end{document}
+
+In this doctoral thesis, through a meticulous exploration of diverse network architectures and dynamics, we have gained valuable insights into fundamental aspects of neural information processing, brain stimulation and network coordination.
+
+The deliberate progression from simpler to more complex network models has allowed us to unravel the intricate interplay of neuronal populations within the brain.
+Beginning with a basic network of three balanced neural populations, we systematically expanded our scope to encompass the complex structure of the cingulum bundle and the dynamic interactions within the hippocampal circuit.
+This methodical approach has not only deepened our understanding of neural circuitry, but has also emphasized the importance of selecting appropriate modelling frameworks tailored to the specific phenomena under investigation.
+
+One of the central findings of our investigation revolves around the pivotal role of synaptic delays in shaping network dynamics.
+In the first part, meticulous experimentation with the delay parameter revealed nuanced patterns of synchronization within the network, shedding light on the intricate interplay between temporal dynamics, information processing, and network stability.
+These observations underscore the critical importance of accounting for synaptic properties in computational models, emphasizing the necessity of incorporating temporal dynamics into our understanding of network behavior.
+
+However, in the modelling of resting-state networks, delays were not considered as open parameters but were instead constrained by tractography data.
+Consequently, these networks exhibited a diverse array of delays, alongside conductances or coupling constants, yielding various synchronization states among network populations and giving rise to dynamic windows of information transmission.
+Although we did not specifically analyze the effect of delays in the hippocampal model, they played a crucial role in the optimization process of model parameters.
+For instance, the involvement of CCK interneurons in CA1 contributed to ensuring that the phase associated with the activation of CA1 pyramidal neurons aligned with expectations.
+This alignment, in part, owes to the specific delays involved, including those at the CA3 pyr$\rightarrow$ CA1 pyr synapse (5 ms), the CCK $\rightarrow$ pyr CA1 synapse (2 ms), and the ECIII $\rightarrow$ CCK synapse (10 ms).
+
+Moreover, our investigation into network synchronization elucidates its fundamental role in information processing and network coordination.
+From facilitating communication between distinct brain regions to orchestrating complex cognitive functions, synchronization emerges as a pivotal mechanism underlying brain function.
+By leveraging experimental measures of synchronization, such as the phase-locking value in resting-state networks, we have refined our models and improved their biological relevance.
+
+
+In conclusion, the findings presented in this doctoral thesis provide a comprehensive framework for understanding neural network dynamics and their implications for brain function. By integrating computational modeling with experimental data, we have laid a solid foundation for future research endeavors aimed at unraveling the complexities of the brain and addressing key questions in neuroscience and neurology.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+This thesis has explored various aspects of neural network modelling across three distinct parts, each shedding light on different facets of information transmission, brain stimulation, and hippocampal circuit dynamics.
+
+In the first part, we delved into signal transmission within neuronal circuits using canonical motifs inspired by the cortico-thalamo-cortical network.
+By systematically investigating the effects of the detuning and delay, as well as the phase relations between bidirectionally coupled oscillators, we uncovered intricate dynamics governing information transfer.
+Our findings underscore the crucial role of phase response curves and network architecture in shaping signal transmission efficiency. Moreover, our results elucidate the complex interplay between direct cortico-cortical connections and indirect transthalamic pathways in facilitating cortical computations.
+
+Transitioning to the second part, we explored the potential of transcranial alternating current stimulation (tACS) as a non-invasive therapeutic tool, particularly in the context of Alzheimer's disease.
+Through personalized resting-state network modelling, we uncovered insights into the effects of tACS on alpha band power, leveraging spiking neural models to capture the rich dynamics of brain networks.
+Despite challenges in achieving high levels of synchronization and variations in response across subjects, our study highlights the importance of considering individualized network characteristics in optimizing stimulation protocols.
+
+Finally, in the last part, our focus shifted to the hippocampal circuit, where we developed a multicompartmental model that captured the laminar structure and various neuronal dynamics of the CA3 and CA1 subfields.
+By faithfully replicating experimental findings on theta-gamma phase-amplitude coupling and spiking phase relationships, our model potentially provides valuable insights into the underlying mechanisms of hippocampal function.
+
+In summary, this work contributes to advancing our understanding of neural network dynamics and their implications for brain function.
+Using computational modeling techniques, we have discovered intricate relationships that govern information transmission, brain stimulation effects, and hippocampal circuit dynamics.
+Moving forward, further research integrating experimental data and refining modelling approaches will deepen our understanding of brain function and pave the way for innovative therapeutic interventions in neurological disorders.
