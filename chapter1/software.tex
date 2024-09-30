@@ -1,0 +1,46 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Software in Computational Neuroscience}
+Matlab and Python stand out as widely adopted programming languages in the field of Computational Neuroscience.
+Matlab, a longstanding favorite, owes its popularity to an extensive ecosystem of toolboxes and libraries meticulously designed for scientific computing and data analysis.
+In contrast, Python has experienced substantial growth in recent years, celebrated for its versatility, robust libraries, and a thriving open-source community.
+Notable libraries such as NumPy \citep{harris2020array}, SciPy \citep{2020SciPy-NMeth}, and Pandas \citep{reback2020pandas} offer formidable tools for numerical computation, data analysis, and statistical modeling.
+Additionally, TensorFlow \citep{abadi2016tensorflow} and PyTorch \citep{NEURIPS2019_bdbca288} have been pivotal in advancing machine learning and deep learning architectures.
+
+However, neither Matlab nor Python are inherently efficient to simulate large-scale neural networks,
+while environments such as Fortran and C++ have traditionally been used for large scale simulations.
+User-friendly software packages for neural modeling have been developed in the last years.
+Some widely used ones include \textbf{Brian} \citep{goodman2009brian,stimberg_brian_2019}, \textbf{NEST} \citep{gewaltig2007nest,eppler2009pynest}, and \textbf{NEURON} \citep{carnevale_neuron_1997,hines_neuron_2009}.
+Although \textbf{Brian} was initially designed as a Python package, \textbf{NEST} and \textbf{NEURON} were developed as independent software with their own programming languages.
+Recently, they have also been developed as importable packages in Python.
+
+\textbf{Brian}, as a popular open-source neural simulation package, provides a user-friendly, high-level interface for constructing and simulating spiking neural network models.
+Supporting a variety of neuron models, synaptic plasticity rules, and network architectures, Brian facilitates the simulation of diverse neural systems and phenomena.
+
+\textbf{NEST}, another widely used software package, focuses on large-scale neural simulations, making it particularly valuable for studying complex brain circuits.
+Offering a flexible and efficient simulation framework capable of handling detailed neuron and synapse models, NEST supports parallel and distributed computing, enabling simulations of massive networks on high-performance computing systems.
+
+\textbf{NEURON} serves as a simulation environment widely employed for modeling and simulating individual neurons and small- to medium-sized neural networks.
+Featuring a specialized programming language (hoc) and a graphical user interface, NEURON allows for constructing and simulating biophysically detailed models of neurons and their interactions.
+Its extensive range of neuron models, ion channels, and synaptic mechanisms supports the creation of highly detailed and realistic simulations, particularly valuable for studying the electrical properties of neurons, synaptic integration, and the impact of ion channels on neuronal behavior.
+
+Despite the robustness of these packages, ongoing efforts aim to address potential shortcomings.
+An example is Dendrify \citep{pagkalos2023introducing}, an open-source Python package based on Brian.
+Through simple commands, Dendrify automatically generates reduced compartmental neuron models with simplified yet biologically relevant dendritic and synaptic integrative properties.
+
+\subsection{Other useful tools}
+Various tools have been developed for different programming environments to specific measurements such as Local Field Potentials (LFPs) in neural network models.
+Examples include LFPy \citep{linden_lfpy_2014} and ViSAPy \citep{hagen_visapy_2015} in Python, VERTEX \citep{tomsett_virtual_2015} in Matlab, and LFPsim \citep{parasuram_computational_2016} in Hoc, the language of NEURON, recently adapted to Python as LFPsimpy (\url{https://github.com/ivanmysin/LFPsimpy}). LFPsimpy offers notable advantages, being implemented in the NEURON-Python environment and incorporating the three approaches described in the previous section on LFPs.
+
+Finally, it is essential to highlight ModelDB \citep{hines_neuron_2009} (\url{https://senselab.med.yale.edu/ModelDB/}), an online repository serving as a valuable resource for a collection of models contributed by researchers worldwide.
+Ranging from single neurons to complex neural circuits, the database, which currently boasts over 1800 models, emphasizes model transparency and reproducibility.
+Source code can be in any language for any environment, can be viewed before downloading, and optionally can be auto-launched on download.
+\end{document}
+
+\textbf{Cosas que he descubierto recientemente}
+Our project supports dissemination of the following modeling tools:
+
+Brain Modeling ToolKit: \url{https://alleninstitute.github.io/bmtk/}
+SONATA data format: \url{https://github.com/AllenInstitute/sonata}
+Visual Neuronal Dynamics (VND) 3D visualization: https://www.ks.uiuc.edu/Research/vnd/
